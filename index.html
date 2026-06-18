@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Официальная страница AMIN TV: прямые эфиры, розыгрыши и ссылки на социальные сети." />
+  <meta name="theme-color" content="#080808" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AMIN TV" />
+  <meta property="og:title" content="AMIN TV — Бозиҳои Лотерея" />
+  <meta property="og:description" content="Канали расмии AMIN TV: трансляцияҳои зинда, қуръакашӣ ва шабакаҳои иҷтимоӣ." />
+  <meta property="og:url" content="https://amintv.ru/" />
+  <meta property="og:image" content="https://amintv.ru/фон/Снимок экрана 2026-05-20 102025.webp" />
+  <link rel="canonical" href="https://amintv.ru/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <title>AMIN TV — Бозиҳои Лотерея</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -15,7 +25,7 @@
       --card:   #161616;
       --border: rgba(255,255,255,0.08);
       --text:   #f0f0f0;
-      --muted:  rgba(255,255,255,0.38);
+      --muted:  rgba(255,255,255,0.68);
       --gold:   #c9a84c;
       --gold2:  #e8c96a;
     }
@@ -29,31 +39,6 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-
-    /* ─── PRELOADER ─── */
-    #loader {
-      position: fixed; inset: 0; z-index: 999;
-      background: var(--black);
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity .5s ease .1s, visibility .5s ease .1s;
-    }
-    #loader.out { opacity: 0; visibility: hidden; }
-    .loader-inner { text-align: center; }
-    .loader-name {
-      font-size: 1.5rem; font-weight: 700; letter-spacing: .25em;
-      color: var(--gold); margin-bottom: 28px;
-    }
-    .loader-track {
-      width: 140px; height: 1px;
-      background: rgba(255,255,255,.1);
-      margin: 0 auto; overflow: hidden;
-    }
-    .loader-bar {
-      height: 100%;
-      background: var(--gold);
-      animation: loadbar 1.6s cubic-bezier(.4,0,.2,1) forwards;
-    }
-    @keyframes loadbar { from { width:0 } to { width:100% } }
 
     /* ─── SLIDESHOW BG ─── */
     .bg-slides {
@@ -88,6 +73,7 @@
 
     /* ─── LAYOUT ─── */
     .page { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; }
+    .page > main { display: flex; flex: 1; flex-direction: column; }
 
     /* ─── HEADER ─── */
     header {
@@ -114,6 +100,12 @@
     }
     .lang-btn.active {
       color: var(--gold); border-color: rgba(201,168,76,.4);
+    }
+    .lang-btn:focus-visible,
+    .cta-btn:focus-visible,
+    .link-card:focus-visible {
+      outline: 2px solid var(--gold2);
+      outline-offset: 4px;
     }
 
     /* ─── HERO ─── */
@@ -154,12 +146,13 @@
     }
     .hero-sub {
       font-size: .78rem; letter-spacing: .05em;
-      color: rgba(255,255,255,.22);
+      color: rgba(255,255,255,.58);
       margin-bottom: 3.5rem;
       opacity: 0; animation: up .6s .65s ease forwards;
     }
 
     .hero-cta {
+      display: flex; align-items: center; justify-content: center; gap: .75rem; flex-wrap: wrap;
       opacity: 0; animation: up .6s .75s ease forwards;
     }
     .cta-btn {
@@ -172,8 +165,95 @@
       transition: background .25s, transform .25s;
     }
     .cta-btn:hover { background: var(--gold2); transform: translateY(-2px); }
+    .cta-btn.secondary {
+      border: 1px solid rgba(201,168,76,.5);
+      background: rgba(8,8,8,.55);
+      color: var(--gold2);
+    }
+    .cta-btn.secondary:hover { background: rgba(201,168,76,.14); }
     .cta-btn svg { width:14px; transition: transform .25s; }
     .cta-btn:hover svg { transform: translateX(3px); }
+
+    .featured-short {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 390px);
+      margin: 1.25rem auto 0;
+      padding: 0;
+      background: transparent;
+      opacity: 0;
+      animation: up .6s .9s ease forwards;
+    }
+    .featured-short[hidden] { display: none; }
+    .featured-short-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: .6rem;
+    }
+    .featured-short-link {
+      flex-shrink: 0;
+      padding: .45rem .7rem;
+      border: 1px solid rgba(201,168,76,.42);
+      border-radius: 6px;
+      color: var(--gold2);
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-decoration: none;
+      text-transform: uppercase;
+      background: rgba(8,8,8,.56);
+    }
+    .featured-short-link:hover { background: rgba(201,168,76,.14); }
+    .featured-short-frame {
+      position: relative;
+      width: 100%;
+      height: clamp(430px, 58svh, 640px);
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 14px;
+      background: rgba(8,8,8,.68);
+      backdrop-filter: blur(10px);
+      text-align: left;
+      box-shadow: 0 18px 60px rgba(0,0,0,.32);
+    }
+    .featured-short-frame video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #000;
+    }
+    .featured-short-meta {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      padding: .8rem .9rem 2.4rem;
+      color: #fff;
+      background: linear-gradient(to bottom, rgba(0,0,0,.72), rgba(0,0,0,0));
+      pointer-events: none;
+    }
+    .featured-short-kicker {
+      display: block;
+      margin-bottom: .3rem;
+      color: var(--gold2);
+      font-size: .56rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .featured-short-title {
+      display: block;
+      max-width: 100%;
+      overflow: hidden;
+      font-size: .95rem;
+      font-weight: 800;
+      line-height: 1.25;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     @keyframes up {
       from { opacity:0; transform:translateY(18px); }
@@ -285,7 +365,7 @@
     }
     .footer-copy {
       font-size: .62rem; letter-spacing: .1em;
-      color: rgba(255,255,255,.2);
+      color: rgba(255,255,255,.56);
     }
     .footer-brand {
       font-size: .62rem; letter-spacing: .2em;
@@ -313,7 +393,7 @@
       /* ─── HEADER ─── */
       header { padding: 1.1rem 1.25rem; }
       .logo { font-size: .7rem; }
-      .lang-btn { padding: 7px 14px; font-size: .68rem; min-height: 36px; }
+      .lang-btn { padding: 7px 14px; font-size: .72rem; min-width: 44px; min-height: 44px; }
 
       /* ─── HERO ─── */
       .hero {
@@ -396,6 +476,30 @@
       /* тап-эффект */
       .link-card:active { background: #1e1e1e; }
 
+      /* ─── FEATURED SHORT ─── */
+      .featured-short {
+        width: 100vw;
+        margin: 1.25rem calc(50% - 50vw) 0;
+        padding: 0 0 env(safe-area-inset-bottom);
+      }
+      .featured-short-head {
+        padding: 0 1.25rem;
+      }
+      .featured-short-link {
+        padding: .5rem .65rem;
+        font-size: .55rem;
+      }
+      .featured-short-frame {
+        height: min(100svh, 880px);
+        min-height: 560px;
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+      }
+      .featured-short-title {
+        font-size: 1rem;
+      }
+
       /* ─── FOOTER ─── */
       footer {
         padding: 1.2rem 1.25rem;
@@ -403,6 +507,16 @@
         justify-content: center; gap: .35rem;
         flex-direction: column; text-align: center;
       }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .bg-slide { transform: none; }
     }
 
     /* очень маленькие экраны */
@@ -419,14 +533,6 @@
 <!-- SCROLL LINE -->
 <div class="scroll-line" id="scrollLine"></div>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-inner">
-    <div class="loader-name">AMIN TV</div>
-    <div class="loader-track"><div class="loader-bar"></div></div>
-  </div>
-</div>
-
 <!-- BG SLIDES -->
 <div class="bg-slides">
   <div class="bg-slide on"></div>
@@ -442,12 +548,13 @@
   <header>
     <div class="logo">AMIN TV</div>
     <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="tg">ТҶ</button>
-      <button class="lang-btn" data-lang="ru">РУ</button>
+      <button class="lang-btn active" type="button" data-lang="tg" aria-label="Забони тоҷикӣ" aria-pressed="true">ТҶ</button>
+      <button class="lang-btn" type="button" data-lang="ru" aria-label="Русский язык" aria-pressed="false">РУ</button>
     </div>
   </header>
 
   <!-- HERO -->
+  <main>
   <section class="hero">
     <div class="hero-inner">
       <div class="tag">
@@ -468,7 +575,22 @@
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
+        <a class="cta-btn secondary" href="/shorts.html">SHORTS</a>
       </div>
+
+      <section class="featured-short" data-featured-short hidden>
+        <div class="featured-short-head">
+          <span class="section-num">SHORTS</span>
+          <a class="featured-short-link" href="/shorts.html">Смотреть все</a>
+        </div>
+        <div class="featured-short-frame">
+          <video data-featured-short-video playsinline muted loop controls preload="metadata" controlslist="nodownload"></video>
+          <div class="featured-short-meta">
+            <span class="featured-short-kicker">Последний short</span>
+            <strong class="featured-short-title" data-featured-short-title></strong>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -483,7 +605,7 @@
   <section class="links-section" id="links">
     <div class="section-head">
       <span class="section-num">01</span>
-      <span class="section-title" data-tg="Шабакаҳои иҷтимоӣ" data-ru="Социальные сети">Шабакаҳои иҷтимоӣ</span>
+      <h2 class="section-title" data-tg="Шабакаҳои иҷтимоӣ" data-ru="Социальные сети">Шабакаҳои иҷтимоӣ</h2>
     </div>
 
     <div class="links-grid">
@@ -577,11 +699,11 @@
         </div>
         <div class="card-foot">
           <div class="card-logo logo-tt">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
             </svg>
           </div>
-          <div class="card-arrow">
+          <div class="card-arrow" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </div>
         </div>
@@ -589,6 +711,8 @@
 
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -599,11 +723,6 @@
 </div><!-- /page -->
 
 <script>
-  /* LOADER */
-  window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('out'), 1700);
-  });
-
   /* SLIDESHOW */
   (function(){
     const s = document.querySelectorAll('.bg-slide');
@@ -618,14 +737,35 @@
   /* SCROLL LINE */
   window.addEventListener('scroll', () => {
     const d = document.documentElement;
-    const pct = d.scrollTop / (d.scrollHeight - d.clientHeight) * 100;
+    const scrollable = d.scrollHeight - d.clientHeight;
+    const pct = scrollable > 0 ? d.scrollTop / scrollable * 100 : 0;
     document.getElementById('scrollLine').style.width = pct + '%';
-  });
+  }, { passive: true });
 
   /* LANGUAGE SWITCHER */
   const btns = document.querySelectorAll('.lang-btn');
+  const langMeta = {
+    tg: {
+      title: 'AMIN TV — Бозиҳои Лотерея',
+      description: 'Канали расмии AMIN TV: трансляцияҳои зинда, қуръакашӣ ва шабакаҳои иҷтимоӣ.'
+    },
+    ru: {
+      title: 'AMIN TV — Лотерейные игры',
+      description: 'Официальная страница AMIN TV: прямые эфиры, розыгрыши и ссылки на социальные сети.'
+    }
+  };
   function setLang(lang) {
-    btns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    const meta = langMeta[lang] || langMeta.tg;
+    document.documentElement.lang = lang;
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]').content = meta.description;
+    document.querySelector('meta[property="og:title"]').content = meta.title;
+    document.querySelector('meta[property="og:description"]').content = meta.description;
+    btns.forEach(b => {
+      const active = b.dataset.lang === lang;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
     document.querySelectorAll('[data-tg]').forEach(el => {
       if (el.tagName === 'A' || el.tagName === 'BUTTON') return;
       el.textContent = el.dataset[lang];
@@ -640,6 +780,128 @@
   btns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
   const saved = localStorage.getItem('amin_lang');
   if (saved && saved !== 'tg') setLang(saved);
+
+  /* FEATURED SHORT */
+  (async function loadFeaturedShort() {
+    const section = document.querySelector('[data-featured-short]');
+    const video = document.querySelector('[data-featured-short-video]');
+    const title = document.querySelector('[data-featured-short-title]');
+    if (!section || !video || !title) return;
+
+    try {
+      const response = await fetch('/api/shorts');
+      if (!response.ok) return;
+
+      const payload = await response.json();
+      const latest = Array.isArray(payload) ? payload.find(item => item && item.videoUrl) : null;
+      if (!latest) return;
+
+      title.textContent = latest.title || 'AMIN TV Short';
+      video.src = latest.videoUrl;
+      section.hidden = false;
+      hydrateFeaturedShortVideo(section, video, latest);
+    } catch {
+      section.hidden = true;
+    }
+  })();
+
+  function hydrateFeaturedShortVideo(section, video, short) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    let tracked = false;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= .55) {
+        video.play().catch(() => {});
+        if (!tracked) {
+          tracked = true;
+          trackFeaturedShortView(short);
+        }
+      } else {
+        video.pause();
+      }
+    }, { threshold: [0, .55] });
+
+    observer.observe(section);
+  }
+
+  function trackFeaturedShortView(short) {
+    if (!short?.id) return;
+    const payload = {
+      type: 'short_view',
+      shortId: short.id,
+      shortTitle: short.title || 'AMIN TV Short'
+    };
+
+    if (typeof window.aminTrackEvent === 'function') {
+      window.aminTrackEvent(payload);
+      return;
+    }
+
+    fetch('/api/analytics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...payload,
+        path: location.pathname || '/',
+        title: document.title || '',
+        referrer: document.referrer || '',
+        visitorId: getAnalyticsId('amin_analytics_visitor', 'v'),
+        sessionId: getAnalyticsSessionId(),
+        screenWidth: window.innerWidth || 0,
+        language: navigator.language || '',
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || ''
+      }),
+      keepalive: true
+    }).catch(() => {});
+  }
+
+  function getAnalyticsSessionId() {
+    const sessionKey = 'amin_analytics_session';
+    const startedKey = 'amin_analytics_session_started';
+    const duration = 30 * 60 * 1000;
+    const started = Number(readStorage(sessionStorage, startedKey) || 0);
+    const current = readStorage(sessionStorage, sessionKey);
+
+    if (current && Date.now() - started < duration) {
+      writeStorage(sessionStorage, startedKey, String(Date.now()));
+      return current;
+    }
+
+    const next = createAnalyticsId('s');
+    writeStorage(sessionStorage, sessionKey, next);
+    writeStorage(sessionStorage, startedKey, String(Date.now()));
+    return next;
+  }
+
+  function getAnalyticsId(key, prefix) {
+    const current = readStorage(localStorage, key);
+    if (current) return current;
+
+    const next = createAnalyticsId(prefix);
+    writeStorage(localStorage, key, next);
+    return next;
+  }
+
+  function readStorage(storage, key) {
+    try {
+      return storage.getItem(key);
+    } catch {
+      return '';
+    }
+  }
+
+  function writeStorage(storage, key, value) {
+    try {
+      storage.setItem(key, value);
+    } catch {}
+  }
+
+  function createAnalyticsId(prefix) {
+    if (crypto?.randomUUID) return `${prefix}-${crypto.randomUUID()}`;
+    return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+  }
 </script>
+  <script src="/analytics.js" defer></script>
 </body>
 </html>

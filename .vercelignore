@@ -1,0 +1,10 @@
+.git
+.github
+.claude
+.vercel
+.env
+.env.*
+node_modules
+SHORTS_SETUP.md
+ссылки.txt
+фон/*.png

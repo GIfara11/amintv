@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/shorts.css">
+  <title>Админка AMIN TV</title>
+</head>
+<body class="admin-page">
+  <header class="shorts-header admin-header">
+    <a class="brand" href="/">AMIN TV</a>
+    <div class="admin-header-actions">
+      <span class="session-pill" data-session-label>Не авторизован</span>
+      <a class="header-action" href="/shorts.html">Открыть ленту</a>
+      <button class="header-action header-button" type="button" data-admin-logout>Выйти</button>
+    </div>
+  </header>
+
+  <section class="auth-shell" data-auth-shell>
+    <form class="auth-card" data-auth-form>
+      <div>
+        <p class="auth-eyebrow">AMIN TV Control</p>
+        <h1>Вход в админку</h1>
+        <p>Доступ к публикации shorts, просмотрам видео, статистике сайта и управлению роликами.</p>
+      </div>
+
+      <label class="field">Пароль администратора
+        <input name="password" type="password" autocomplete="current-password" required autofocus>
+      </label>
+
+      <button class="publish-button" type="submit">Войти</button>
+      <p class="publish-status" data-auth-status aria-live="polite"></p>
+    </form>
+  </section>
+
+  <main class="admin-shell" data-admin-shell hidden>
+    <section class="admin-card">
+      <div class="admin-section-head">
+        <div>
+          <p class="admin-kicker">Dashboard</p>
+          <h1>Панель управления AMIN TV</h1>
+          <p>Короткая сводка по shorts и сайту. Без лишней мишуры: контент, просмотры, публикация, управление.</p>
+        </div>
+        <div class="admin-toolbar">
+          <button class="secondary-button" type="button" data-admin-refresh>Обновить дашборд</button>
+          <a class="ghost-button" href="/shorts.html">Проверить ленту</a>
+        </div>
+      </div>
+
+      <div class="admin-stats" data-admin-stats></div>
+
+      <div class="dashboard-grid admin-hidden-roots" aria-hidden="true">
+        <section class="dashboard-panel">
+          <div class="dashboard-panel-head">
+            <h2>Динамика за 7 дней</h2>
+            <span class="dashboard-hint">Сколько роликов вышло по дням</span>
+          </div>
+          <div class="dashboard-chart" data-dashboard-chart></div>
+        </section>
+
+        <section class="dashboard-panel">
+          <div class="dashboard-panel-head">
+            <h2>Состояние контента</h2>
+            <span class="dashboard-hint">Покрытие ленты и качество карточек</span>
+          </div>
+          <div class="dashboard-meters" data-dashboard-health></div>
+        </section>
+
+        <section class="dashboard-panel">
+          <div class="dashboard-panel-head">
+            <h2>Ключевые инсайты</h2>
+            <span class="dashboard-hint">Что видно по текущей базе роликов</span>
+          </div>
+          <div class="dashboard-insights" data-dashboard-insights></div>
+        </section>
+
+        <section class="dashboard-panel">
+          <div class="dashboard-panel-head">
+            <h2>Последняя активность</h2>
+            <span class="dashboard-hint">Публикации и правки</span>
+          </div>
+          <div class="dashboard-activity" data-dashboard-activity></div>
+        </section>
+      </div>
+
+      <section class="dashboard-panel analytics-panel" aria-labelledby="site-analytics-title">
+        <div class="dashboard-panel-head">
+          <div>
+            <h2 id="site-analytics-title">Статистика сайта</h2>
+          <span class="dashboard-hint">Посещения сайта и запуски shorts</span>
+          </div>
+          <label class="analytics-range">
+            Период
+            <select data-analytics-range>
+              <option value="7">7 дней</option>
+              <option value="14">14 дней</option>
+              <option value="30" selected>30 дней</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="admin-stats" data-analytics-stats></div>
+
+        <div class="dashboard-grid analytics-grid">
+          <section class="dashboard-panel">
+            <div class="dashboard-panel-head">
+              <h3>Динамика посещений</h3>
+              <span class="dashboard-hint">Просмотры страниц по дням</span>
+            </div>
+            <div class="dashboard-chart" data-analytics-chart></div>
+          </section>
+
+          <section class="dashboard-panel">
+            <div class="dashboard-panel-head">
+              <h3>Популярные страницы</h3>
+              <span class="dashboard-hint">Что чаще открывают</span>
+            </div>
+            <div data-analytics-pages></div>
+          </section>
+
+          <section class="dashboard-panel admin-hidden-roots" aria-hidden="true">
+            <div class="dashboard-panel-head">
+              <h3>Источники</h3>
+              <span class="dashboard-hint">Откуда приходят</span>
+            </div>
+            <div data-analytics-referrers></div>
+          </section>
+
+          <section class="dashboard-panel">
+            <div class="dashboard-panel-head">
+              <h3>Устройства</h3>
+              <span class="dashboard-hint">Desktop, mobile, tablet</span>
+            </div>
+            <div data-analytics-devices></div>
+          </section>
+
+          <section class="dashboard-panel analytics-recent-panel admin-hidden-roots" aria-hidden="true">
+            <div class="dashboard-panel-head">
+              <h3>Последние визиты</h3>
+              <span class="dashboard-hint">Последние page view события</span>
+            </div>
+            <div class="dashboard-activity" data-analytics-recent></div>
+          </section>
+        </div>
+
+        <p class="admin-status" data-analytics-status>Статистика загрузится после входа.</p>
+      </section>
+
+      <p class="admin-status" data-admin-status>Дашборд загрузится после входа.</p>
+    </section>
+
+    <section class="admin-card">
+      <div class="admin-section-head">
+        <div>
+          <p class="admin-kicker">Publish</p>
+          <h2>Публикация shorts</h2>
+          <p>Новое вертикальное видео MP4, WebM или MOV до 500 МБ.</p>
+        </div>
+      </div>
+
+      <form class="publish-form" data-publish-form>
+        <input name="password" type="hidden" data-admin-password>
+        <label class="field">Название
+          <input name="title" maxlength="120" required>
+        </label>
+        <label class="field">Подпись
+          <textarea name="caption" maxlength="500"></textarea>
+        </label>
+        <label class="field">Видео
+          <input name="video" type="file" accept="video/mp4,video/webm,video/quicktime" required>
+        </label>
+        <progress class="publish-progress" data-progress max="100" value="0" hidden></progress>
+        <div class="admin-toolbar">
+          <button class="publish-button" type="submit" data-submit>Опубликовать</button>
+        </div>
+        <p class="publish-status" data-status aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="admin-card">
+      <div class="admin-section-head">
+        <div>
+          <p class="admin-kicker">Content</p>
+          <h2>Управление роликами</h2>
+          <p>Редактирование, статус, просмотры и удаление роликов.</p>
+        </div>
+      </div>
+
+      <div class="management-toolbar">
+        <label class="field">
+          Поиск по названию или подписи
+          <input data-admin-search placeholder="Например: СТАРТИ БОЗИИ 22">
+        </label>
+        <label class="field">
+          Статус
+          <select data-filter-status>
+            <option value="all">Все</option>
+            <option value="published">В ленте</option>
+            <option value="hidden">Скрытые</option>
+          </select>
+        </label>
+        <label class="field">
+          Сортировка
+          <select data-filter-sort>
+            <option value="newest">Сначала новые</option>
+            <option value="updated">Сначала обновлённые</option>
+            <option value="oldest">Сначала старые</option>
+            <option value="title">По названию</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="bulk-toolbar" data-bulk-toolbar hidden>
+        <div class="bulk-summary" data-selection-count>Выбрано: 0</div>
+        <div class="bulk-actions">
+          <button class="ghost-button" type="button" data-bulk-select="visible">Выбрать видимые</button>
+          <button class="ghost-button" type="button" data-bulk-select="clear">Снять выбор</button>
+          <button class="secondary-button" type="button" data-bulk-action="publish">Вернуть в ленту</button>
+          <button class="secondary-button" type="button" data-bulk-action="hide">Скрыть</button>
+          <button class="danger-button" type="button" data-bulk-action="delete">Удалить выбранные</button>
+        </div>
+      </div>
+
+      <div class="admin-list" data-admin-list></div>
+    </section>
+  </main>
+
+  <script type="module" src="/shorts-admin.js"></script>
+  <script src="/analytics-admin.js" defer></script>
+  <script src="/admin-auth.js" defer></script>
+</body>
+</html>

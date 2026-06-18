@@ -1,0 +1,13 @@
+{
+  "name": "amintv-linkpage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-public.js",
+    "check": "node --check api/_admin-session.js && node --check api/_login-rate-limit.js && node --check api/admin-auth.js && node --check api/_shorts-store.js && node --check api/shorts.js && node --check api/shorts-admin.js && node --check api/shorts-upload.js && node --check api/analytics.js && node --check shorts.js && node --check analytics.js && node --check analytics-admin.js && node --check admin-auth.js && node --check src/shorts-admin.js"
+  },
+  "dependencies": {
+    "@vercel/blob": "2.4.0"
+  }
+}
