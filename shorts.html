@@ -13,11 +13,18 @@
 <body>
   <header class="shorts-header">
     <a class="brand" href="/">AMIN TV</a>
-    <a class="header-action" href="/">Главная</a>
+    <div class="header-controls">
+      <div class="lang-toggle" aria-label="Выбор языка">
+        <button class="lang-btn" type="button" data-lang="tg" aria-label="Забони тоҷикӣ">ТҶ</button>
+        <button class="lang-btn" type="button" data-lang="ru" aria-label="Русский язык">РУ</button>
+      </div>
+      <a class="header-action" href="/">Главная</a>
+    </div>
   </header>
   <main class="shorts-feed" data-shorts-feed>
     <div class="feed-state">Загружаем shorts…</div>
   </main>
+  <script src="/i18n.js" defer></script>
   <script src="/shorts.js" defer></script>
   <script src="/analytics.js" defer></script>
 </body>

@@ -118,7 +118,7 @@
   }
 
   function formatDate(value) {
-    return new Intl.DateTimeFormat('ru-RU', {
+    return new Intl.DateTimeFormat(window.AminI18n?.locale?.() || 'ru-RU', {
       dateStyle: 'medium',
       timeStyle: 'short'
     }).format(new Date(value));

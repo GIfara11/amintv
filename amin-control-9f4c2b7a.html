@@ -13,6 +13,10 @@
   <header class="shorts-header admin-header">
     <a class="brand" href="/">AMIN TV</a>
     <div class="admin-header-actions">
+      <div class="lang-toggle" aria-label="Выбор языка">
+        <button class="lang-btn" type="button" data-lang="tg" aria-label="Забони тоҷикӣ">ТҶ</button>
+        <button class="lang-btn" type="button" data-lang="ru" aria-label="Русский язык">РУ</button>
+      </div>
       <span class="session-pill" data-session-label>Не авторизован</span>
       <a class="header-action" href="/shorts.html">Открыть ленту</a>
       <button class="header-action header-button" type="button" data-admin-logout>Выйти</button>
@@ -228,6 +232,7 @@
     </section>
   </main>
 
+  <script src="/i18n.js"></script>
   <script type="module" src="/shorts-admin.js"></script>
   <script src="/analytics-admin.js" defer></script>
   <script src="/admin-auth.js" defer></script>

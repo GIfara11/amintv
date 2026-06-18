@@ -14,6 +14,7 @@ const files = [
   'analytics-admin.js',
   'analytics.js',
   'favicon.svg',
+  'i18n.js',
   'index.html',
   'robots.txt',
   'shorts-admin.js',

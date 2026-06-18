@@ -410,7 +410,7 @@ function renderShortCard(item) {
           <span class="short-admin-badge" data-status="${escapeAttribute(item.status)}">
             ${item.status === 'published' ? 'Опубликован' : 'Скрыт'}
           </span>
-          <span class="short-admin-views">${Number(item.views || 0).toLocaleString('ru-RU')} просмотров${item.lastViewedAt ? ` · Последний: ${escapeHtml(formatDate(item.lastViewedAt))}` : ''}</span>
+          <span class="short-admin-views">${Number(item.views || 0).toLocaleString(window.AminI18n?.locale?.() || 'ru-RU')} просмотров${item.lastViewedAt ? ` · Последний: ${escapeHtml(formatDate(item.lastViewedAt))}` : ''}</span>
           <span class="short-admin-dates">Опубликован: ${escapeHtml(formatDate(item.publishedAt))}</span>
           <span class="short-admin-dates">Обновлён: ${escapeHtml(formatDate(item.updatedAt))}</span>
         </div>
@@ -552,7 +552,7 @@ function validateShort(file) {
 }
 
 function formatDate(value) {
-  return new Intl.DateTimeFormat('ru-RU', {
+  return new Intl.DateTimeFormat(window.AminI18n?.locale?.() || 'ru-RU', {
     dateStyle: 'medium',
     timeStyle: 'short'
   }).format(new Date(value));
